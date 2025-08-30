@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosalie Zhang - UX Designer Portfolio</title>
+    <title>Chat with My AI Assistant</title>
     <style>
         * {
             margin: 0;
@@ -12,593 +12,399 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E6F3FF 0%, #FFF9E6 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
             flex-direction: column;
-            height: 80vh;
-            max-height: 700px;
-            min-height: 500px;
+            color: #333;
         }
 
         .header {
-            background: linear-gradient(135deg, #2196F3, #21CBF3);
-            color: white;
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            border-bottom: 1px solid rgba(173, 216, 230, 0.3);
+            box-shadow: 0 2px 20px rgba(173, 216, 230, 0.1);
         }
 
         .header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
+            color: #191970;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
         }
 
         .header p {
+            color: #666;
             font-size: 1.1rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
         }
 
         .chat-container {
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: #f8f9fa;
-        }
-
-        .messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: messageSlide 0.5s ease-out forwards;
-        }
-
-        @keyframes messageSlide {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message.user {
-            flex-direction: row-reverse;
-            text-align: right;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .avatar.ai {
-            background: linear-gradient(135deg, #2196F3, #21CBF3);
-        }
-
-        .avatar.user {
-            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-        }
-
-        .message-content {
-            max-width: 70%;
-            padding: 15px 20px;
-            border-radius: 20px;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .message.ai .message-content {
-            background: white;
-            border: 1px solid #e1e8ed;
-            border-radius: 20px 20px 20px 5px;
-        }
-
-        .message.user .message-content {
-            background: linear-gradient(135deg, #2196F3, #21CBF3);
-            color: white;
-            border-radius: 20px 20px 5px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 2rem;
+            gap: 1rem;
         }
 
         .suggested-questions {
-            padding: 20px;
-            background: white;
-            border-top: 1px solid #e1e8ed;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(173, 216, 230, 0.15);
         }
 
         .suggested-questions h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            font-weight: 600;
+            color: #191970;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .question-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0.5rem;
         }
 
         .question-btn {
-            background: #f8f9fa;
-            border: 1px solid #e1e8ed;
-            padding: 10px 16px;
-            border-radius: 25px;
+            background: #C8E6FF;
+            border: none;
+            border-radius: 20px;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
             color: #333;
-            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(173, 216, 230, 0.15);
         }
 
         .question-btn:hover {
-            background: linear-gradient(135deg, #2196F3, #21CBF3);
-            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+            box-shadow: 0 4px 15px rgba(173, 216, 230, 0.25);
+            background: #B0DAFF;
+        }
+
+        .question-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(173, 216, 230, 0.25);
+            background: #9AC7E0;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            min-height: 400px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(173, 216, 230, 0.2);
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            text-align: right;
+        }
+
+        .user-message .bubble {
+            background: linear-gradient(45deg, #ADD8E6, #B8E6FF);
+            color: #333;
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            border-radius: 20px 20px 5px 20px;
+            max-width: 70%;
+            box-shadow: 0 2px 10px rgba(173, 216, 230, 0.2);
+        }
+
+        .ai-message .bubble {
+            background: linear-gradient(45deg, rgba(255, 235, 153, 0.6), rgba(255, 241, 179, 0.6));
+            color: #333;
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            border-radius: 20px 20px 20px 5px;
+            max-width: 80%;
+            box-shadow: 0 2px 10px rgba(255, 235, 153, 0.15);
+            line-height: 1.6;
         }
 
         .input-container {
-            padding: 20px;
-            background: white;
-            border-top: 1px solid #e1e8ed;
             display: flex;
-            gap: 15px;
-            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(173, 216, 230, 0.3);
         }
 
-        .input-field {
+        .chat-input {
             flex: 1;
-            padding: 15px 20px;
-            border: 1px solid #e1e8ed;
+            border: 2px solid rgba(173, 216, 230, 0.3);
             border-radius: 25px;
-            outline: none;
+            padding: 1rem 1.5rem;
             font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
         }
 
-        .input-field:focus {
-            border-color: #2196F3;
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        .chat-input:focus {
+            outline: none;
+            border-color: #ADD8E6;
+            box-shadow: 0 0 15px rgba(173, 216, 230, 0.3);
         }
 
         .send-btn {
-            background: linear-gradient(135deg, #2196F3, #21CBF3);
+            background: linear-gradient(45deg, #4A90E2, #7FB3D3);
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            border-radius: 25px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            min-width: 100px;
         }
 
         .send-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
-        }
-
-        .send-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            background: linear-gradient(45deg, #5A9FF2, #8FC3E3);
         }
 
         .typing-indicator {
             display: none;
-            align-items: center;
-            gap: 12px;
-            margin: 10px 0;
+            padding: 1rem;
+            color: #666;
+            font-style: italic;
         }
 
         .typing-dots {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-            padding: 15px 20px;
-            background: white;
-            border: 1px solid #e1e8ed;
-            border-radius: 20px 20px 20px 5px;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
         }
 
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #2196F3;
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
-        }
-
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typing {
-            0%, 60%, 100% { opacity: 0.3; }
-            30% { opacity: 1; }
-        }
-
-        .welcome-message {
-            text-align: center;
-            color: #666;
-            padding: 40px 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
+        @keyframes pulse {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.5; }
         }
 
         @media (max-width: 768px) {
-            .container {
-                height: 95vh;
-                border-radius: 0;
-                margin: 0;
+            .chat-container {
+                padding: 1rem;
             }
-
+            
+            .header {
+                padding: 1rem;
+            }
+            
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
-
-            .header p {
-                font-size: 1rem;
-            }
-
-            .message-content {
-                max-width: 85%;
-                font-size: 0.9rem;
-            }
-
+            
             .question-buttons {
-                flex-direction: column;
+                justify-content: center;
             }
-
+            
             .question-btn {
-                text-align: center;
-                white-space: normal;
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
             }
-
+            
+            .user-message .bubble,
+            .ai-message .bubble {
+                max-width: 90%;
+            }
+            
             .input-container {
-                padding: 15px;
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Hi, I'm Rosalie! 👋</h1>
-            <p>UX Designer • Ask me anything about my experience!</p>
+    <div class="header">
+        <h1>Rosalie's Portfolio Assistant</h1>
+        <p>Ask me anything about my experience in Product Design, UX/UI, and why I'd be perfect for your team!</p>
+    </div>
+
+    <div class="chat-container">
+        <div class="suggested-questions">
+            <h3>💡 Try asking me about:</h3>
+            <div class="question-buttons">
+                <button class="question-btn" onclick="askQuestion('What roles are you most interested in and why?')">Career Interests</button>
+                <button class="question-btn" onclick="askQuestion('What are your key projects and their impact?')">Key Projects</button>
+                <button class="question-btn" onclick="askQuestion('What skills and experience do you bring?')">Skills & Experience</button>
+                <button class="question-btn" onclick="askQuestion('Why would you be a good fit for Adobe?')">Why Adobe?</button>
+                <button class="question-btn" onclick="askQuestion('Why would you be a good fit for Shopify?')">Why Shopify?</button>
+                <button class="question-btn" onclick="askQuestion('Tell me about the GoTogether project')">GoTogether Project</button>
+                <button class="question-btn" onclick="askQuestion('What languages do you speak?')">Languages</button>
+                <button class="question-btn" onclick="askQuestion('Tell me about your Cogeco internship')">Cogeco Experience</button>
+            </div>
         </div>
 
-        <div class="chat-container">
-            <div class="messages" id="messages">
-                <div class="welcome-message">
-                    <p>Welcome to my interactive portfolio! I'm here to answer questions about my UX design experience, projects, and what I can bring to your team. Feel free to ask me anything or try one of the suggested questions below!</p>
-                </div>
-            </div>
+        <div class="messages" id="messages"></div>
+        
+        <div class="typing-indicator" id="typingIndicator">
+            <span class="typing-dots">AI is typing...</span>
+        </div>
 
-            <div class="typing-indicator" id="typingIndicator">
-                <div class="avatar ai">R</div>
-                <div class="typing-dots">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            </div>
-
-            <div class="suggested-questions">
-                <h3>✨ Try asking me:</h3>
-                <div class="question-buttons" id="questionButtons">
-                    <div class="question-btn" data-question="What kind of roles are you looking for?">What roles interest you?</div>
-                    <div class="question-btn" data-question="Tell me about your GoTogether project">About GoTogether project</div>
-                    <div class="question-btn" data-question="What are your strongest skills?">Your key skills</div>
-                    <div class="question-btn" data-question="Why would you be a good fit for a product design role?">Fit for product design</div>
-                    <div class="question-btn" data-question="Tell me about your education background">Your education</div>
-                    <div class="question-btn" data-question="What languages do you speak?">Languages you speak</div>
-                    <div class="question-btn" data-question="Tell me about the Gaia project">About Gaia project</div>
-                    <div class="question-btn" data-question="What tools do you use?">Your design tools</div>
-                </div>
-            </div>
-
-            <div class="input-container">
-                <input type="text" class="input-field" id="userInput" placeholder="Ask me about my experience, projects, or anything else...">
-                <button class="send-btn" id="sendBtn">→</button>
-            </div>
+        <div class="input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about Rosalie..." onkeypress="handleKeyPress(event)">
+            <button class="send-btn" onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script>
         const responses = {
-            // Role-related questions
-            "roles": "I'm passionate about **Product Designer, UX Design, UI Design, and UX Research** roles! I love the entire design process from research to implementation. I'm particularly drawn to companies like **Adobe, Shopify, and Cogeco** where I can work on products that impact millions of users. What excites me most is combining user research with data-driven design decisions to create experiences that truly solve user problems.",
+            // Career interests and roles
+            "roles": "I'm passionate about Product Design, UX Design, and UX Research roles because they allow me to combine my love for understanding user needs with creating meaningful digital experiences. What excites me most is the opportunity to bridge the gap between user research insights and tangible design solutions that make people's lives easier and more enjoyable.",
             
-            "target roles": "I'm targeting **Product Designer** and **UX Designer** positions where I can leverage my research background and collaborative leadership style. I'm especially interested in roles that involve user research, as I believe great design starts with deep user understanding. My experience leading teams through complex redesigns, like the GoTogether app with 80 screens, has shown me how much I enjoy the strategic side of product design.",
+            "career": "I'm particularly drawn to roles where I can influence the entire user experience journey - from conducting research to understand user pain points, to designing intuitive interfaces, and then validating those designs through testing. I believe great design happens when you truly understand your users.",
+            
+            "interested": "I'm most interested in Product Design and UX roles because they combine analytical thinking with creative problem-solving. I love the challenge of taking complex problems and turning them into simple, elegant solutions that users actually want to use.",
 
-            // Education and background
-            "education": "I'm currently pursuing a **Masters in Digital Experience Innovation at University of Waterloo**, building on my **Bachelor's in Cognitive Science with Computer Science & Linguistics from McGill University**. I also completed a **UX Design Certificate from Springboard** and studied abroad at **Hong Kong University**. My cognitive science background gives me a unique perspective on how users think and behave - it's like having a psychology toolkit for design decisions!",
+            // Projects and impact
+            "projects": "I've led some exciting projects! At GoTogether, I guided a team of 3 UX designers to conduct 20 student interviews and redesign 80 screens for their carpooling app. I also won first place in a 2019 social innovation competition with 'Gaia' - an app concept for seamless retail while reducing paper waste. Currently working with ChangeArts to design their mobile platform from web interface, making art events more accessible for teachers and organizations.",
+            
+            "impact": "My GoTogether project involved comprehensive user research with 20 student interviews that directly informed our redesign of 80 screens. At Cogeco, I'm building scalable design system components and creating marketing landing pages that increase clarity and engagement. At meSO, I prototyped relationship-building app screens through multiple iterations based on user feedback. Each project taught me the importance of user-centered design and data-driven decision making.",
 
-            "mcgill": "At **McGill University**, I studied **Cognitive Science with focuses in Computer Science and Linguistics**. This interdisciplinary background is perfect for UX design - cognitive science taught me how people process information and make decisions, computer science gave me technical understanding, and linguistics helped with user research and communication. It's honestly the perfect foundation for user-centered design!",
-
-            "waterloo": "I'm currently at the **University of Waterloo** pursuing my **Masters in Digital Experience Innovation**. This program is amazing because it combines design thinking, technology, and business strategy. It's where I'm deepening my understanding of how digital experiences can create real impact. The program perfectly aligns with my goal of becoming a strategic product designer who can see the bigger picture.",
-
-            "background": "My educational journey spans **cognitive science, computer science, linguistics, and digital experience innovation** - it's like I was destined for UX design! From McGill's interdisciplinary approach to Waterloo's innovation focus, plus studying abroad in Hong Kong, I've developed both the analytical mindset and global perspective that modern design teams need.",
-
-            // Project-related responses
-            "gotogether": "The **GoTogether App Redesign** was one of my most impactful projects! I led a team of 3 UX designers through a complete overhaul of a student carpooling app. We conducted **20 student interviews** and redesigned **80 screens** in just one month. What I'm most proud of is how we transformed user insights into actionable design decisions. The collaborative process taught me so much about balancing user needs with business goals while keeping a team aligned and motivated.",
-
-            "projects": "My projects span from **winning first place** in a social innovation competition with Gaia (a paper-waste reduction app) to redesigning ChangeArts' mobile platform for art education. At **Develop for Good**, I transformed a web interface into an intuitive mobile experience for teachers and art organizations. At **BBA Inc**, I even designed visual representations for mining operations! Each project taught me something different - GoTogether showed me team leadership, Cogeco taught me design systems, and meSO gave me startup agility.",
-
-            "gaia": "**Gaia** was such a rewarding project! We won **first place out of 10 teams** in the 2019 upGen social innovation competition. I conceptualized an app that offers a seamless retail experience while reducing paper waste - combining great UX with environmental impact. It taught me how powerful design can be when it serves both user needs and larger societal goals. This project really sparked my passion for designing with purpose!",
-
-            "changearts": "At **Develop for Good**, I designed ChangeArts' mobile platform from scratch, transforming their web interface into an easy, accessible experience for teachers and art organizations to find and register for art events. This project was close to my heart because it's about making arts education more accessible - similar to how I coach figure skating to help others discover their potential. The mobile-first approach made art opportunities available to educators wherever they are.",
-
-            "studyhall": "Working on **StudyHall's marketing website** was fascinating! I redesigned the entire site featuring a whiteboard tool that helps tutors teach 74+ children to read. Collaborating with stakeholders taught me how to balance different perspectives while keeping the user at the center. It's amazing to think that my design work could indirectly help children learn to read!",
-
-            "mining": "At **BBA Inc**, I worked on something completely different - designing **2 visual representations for the Integrated Operation Center in the Windfall Mining project** plus **7 storyboards for the MineUX Hub & Spoke methodology**. This taught me that UX principles apply everywhere, even in industrial settings. It was a great challenge to make complex mining operations understandable through visual design!",
-
-            "breezeline": "At **Cogeco Connexion**, I worked on Breezeline's design system, building scalable, reusable components. I also designed marketing landing pages for flash sales and back-to-school campaigns. This experience taught me how design systems create consistency at scale while still allowing for creative solutions. It was amazing seeing how thoughtful component design could speed up the entire team's workflow!",
+            "gotogether": "Leading the GoTogether app redesign was incredibly rewarding! I managed a team of 3 UX designers, conducted 20 student interviews, and redesigned 80 screens for their K12 student carpooling app. We focused on making carpooling safer and more accessible for students while aligning with the company's new branding. The project taught me a lot about team leadership and collaborative design processes.",
 
             // Skills and experience
-            "skills": "My core strengths are **User Research, Data Analysis, and Collaborative Leadership**. Colleagues often describe me as **proactive, responsive, and naturally curious** - I'm always the first to jump in when challenges arise! My technical toolkit includes **Figma, Adobe Photoshop, Miro, Procreate, Adobe XD, and HotJar**, plus I can code in **HTML and CSS**. I'm also trilingual - fluent in **English, French, and Mandarin**. But what I think sets me apart is my ability to translate complex user insights into clear, actionable design decisions.",
+            "skills": "I bring a unique combination of research skills, design thinking, and technical understanding. I'm proficient in Figma, Adobe Photoshop, Miro, Adobe XD, and HotJar, plus I know HTML and CSS. My background in Cognitive Science gives me a deep understanding of how users think and process information. I speak English, French, and Mandarin, which helps me design for diverse user groups.",
+            
+            "experience": "I've worked across various industries - from tech startups like meSO to established companies like Cogeco Connexion. My experience includes leading design teams, conducting user research, building design systems, creating marketing landing pages, and prototyping mobile apps. I've collaborated with developers, stakeholders, and cross-functional teams to bring designs to life.",
 
-            "languages": "I'm fluent in **English, French, and Mandarin**! Growing up trilingual has been amazing for my design career - it helps me understand different cultural contexts and communicate with diverse teams. Plus, being able to conduct user research in multiple languages opens up so many opportunities for deeper user insights. It's especially valuable in Canada's multicultural market!",
+            "cogeco": "I'm currently doing a Product Design internship at Cogeco Connexion, contributing to Breezeline's design system by building scalable, reusable components. I'm also designing marketing landing pages for campaigns like flash sales and back-to-school deals. It's been amazing to work on design systems at scale and see how good component design impacts the entire user experience.",
 
-            "tools": "I'm proficient with **Figma** (my go-to for collaborative design), **Adobe Photoshop** for visual design, **Miro** for workshops and ideation, **HotJar** for user behavior analysis, and **Adobe XD** for prototyping. I also code in **HTML and CSS**, which helps me communicate better with developers and understand technical constraints. Oh, and **Procreate** is my secret weapon for quick sketches and creative exploration!",
+            // Company-specific responses
+            "adobe": "Adobe would be an amazing fit because of my passion for creative tools and design systems. Having worked on Cogeco's design system building scalable components, I understand how crucial consistency and reusability are at scale. Adobe's commitment to empowering creators aligns perfectly with my belief that good design should democratize creativity. My multilingual abilities (English, French, Mandarin) would help serve Adobe's global user base.",
+            
+            "shopify": "Shopify's mission to make commerce better for everyone really resonates with me. My experience redesigning the GoTogether app and working on marketing landing pages at Cogeco has given me insights into how design impacts business success. I'd be excited to help merchants succeed through better UX, and my background in user research would be valuable for understanding diverse merchant needs across different markets.",
+            
+            "cogeco": "Actually, I'm currently interning at Cogeco Connexion as a Product Designer! I'm contributing to Breezeline's design system and creating marketing landing pages. The experience has been incredible - working on design systems at this scale has taught me so much about creating consistent, scalable design solutions. I'd love to continue contributing to products that connect communities through better technology.",
 
-            "experience": "I've worked across startups, established companies, and nonprofits, giving me a unique perspective on how design adapts to different environments. From **Cogeco's structured design system work** to **meSO's scrappy startup iterations**, I've learned to be flexible while maintaining design quality. My experience spans mobile apps, web platforms, marketing sites, and even physical representations for mining operations!",
+            // Background and personal
+            "background": "I'm Rosalie, and I'm fascinated by how design can solve real problems and improve people's experiences. My journey combines a strong academic foundation with hands-on experience. I have a Bachelor's from McGill in Cognitive Science with Computer Science & Linguistics, and I'm pursuing a Masters in Digital Experience Innovation at University of Waterloo. This background gives me deep insights into how users think and process information.",
+            
+            "education": "I have a unique educational background! Bachelor's from McGill in Cognitive Science focusing on Computer Science & Linguistics, currently pursuing my Masters in Digital Experience Innovation at University of Waterloo, plus a UX Design Certificate from Springboard and study abroad experience at HKU. This combination gives me both the theoretical understanding of human cognition and practical design skills.",
+            
+            "personal": "Outside of design, I'm a figure skating instructor and have been skating for over a decade - it's taught me discipline, precision, and how to break down complex movements into learnable steps. I also teach track and field, which has strengthened my coaching and communication skills. Both experiences have made me better at giving constructive feedback and helping others improve, skills that translate perfectly to design collaboration and user research.",
+            
+            "outside": "I teach figure skating and track and field in my spare time! Figure skating has been a huge part of my life for over ten years - it's taught me about attention to detail, grace under pressure, and the importance of practice and iteration (very relevant to design!). Teaching both sports has made me a better communicator and helped me learn how to break down complex concepts into understandable steps.",
 
-            "research": "User research is where I truly shine! I've conducted **20+ user interviews**, analyzed user behavior data, and translated insights into design decisions. My cognitive science background gives me a unique lens for understanding how users think and behave. I believe great design is impossible without understanding your users deeply - that's why I always push for research time in any project.",
+            "languages": "I speak English, French, and Mandarin fluently! This helps me design for diverse user groups and understand different cultural perspectives in UX. It's been especially valuable when conducting user research and considering accessibility for global audiences.",
 
-            // Company fit
-            "adobe fit": "**Adobe** would be a dream because of their commitment to creative tools that empower users. My experience with design systems at Cogeco, combined with my research background, would be perfect for improving creative workflows. I'm fascinated by how Adobe balances powerful features with intuitive interfaces - exactly the kind of complex design challenge I love solving!",
+            // Specific project responses
+            "meso": "At meSO, I collaborated with another UX Designer and 6 developers to prototype screens for a relationship-building app. We went through multiple iterations based on user feedback, which taught me the importance of rapid prototyping and user testing. I also designed the banner for their first exhibition, which was exciting because it required translating digital design skills to physical marketing materials.",
 
-            "shopify fit": "**Shopify's** mission to democratize commerce really resonates with me. My experience redesigning platforms for accessibility (like ChangeArts for teachers) shows I understand how to make complex tools simple. I'd love to help small business owners succeed through better design - it combines my technical skills with my passion for user empowerment.",
+            "develop": "At Develop for Good, I'm designing ChangeArts' mobile platform from their existing web interface. The challenge is creating an easy and accessible experience for teachers and art organizations to find and register for art events. It's rewarding work because it directly impacts arts education and makes cultural experiences more accessible.",
 
-            "cogeco fit": "Having already interned at **Cogeco Connexion**, I know firsthand how they value thoughtful design and user experience. My work on Breezeline's design system showed me how much impact good design can have on customer experience. I'd love to return and work on larger initiatives that help families stay connected through better digital experiences.",
-
-            "product design": "Product design is perfect for me because it combines **strategic thinking, user empathy, and creative problem-solving**. My experience leading the GoTogether redesign showed me how much I enjoy seeing the big picture while perfecting the details. I love being involved from research through implementation - it's where I can make the biggest impact on both users and business goals.",
-
-            // Personal and philosophy
-            "philosophy": "My design philosophy centers on **curiosity-driven, data-informed decisions**. I believe the best designs come from deeply understanding users, then iterating based on real feedback. My cognitive science background taught me that human behavior is complex - so I always dig deeper than surface-level preferences to understand the 'why' behind user actions.",
-
-            "approach": "I approach design with **collaborative leadership and creative problem-solving**. I love bringing teams together around user insights, then exploring creative solutions together. Whether I'm coaching figure skating or leading design teams, I've learned that the best results come from combining structure with creative freedom.",
-
-            "fun facts": "I've been **figure skating for over a decade** and coach both figure skating and track & field! These experiences taught me discipline, attention to detail, and how to help others improve through clear feedback. The precision required in skating actually translates beautifully to pixel-perfect design work. Plus, coaching has made me a better team leader - I know how to motivate people and help them reach their potential!",
-
-            "personality": "Outside of design, I'm passionate about **figure skating and track & field coaching**! I've been skating for over 10 years, which taught me discipline and precision that carries into my design work. Coaching has made me better at giving constructive feedback and motivating teams. I love how these experiences have made me more empathetic and patient - qualities that make me a better designer and collaborator.",
-
-            // Default responses
-            "default": "That's a great question! While I might not have a specific answer prepared, I'd love to tell you more about my **UX design experience, key projects like GoTogether, or my passion for user research**. What aspects of my background would be most helpful for you to know about?",
-
-            "greeting": "Hey there! 👋 I'm excited you're interested in learning more about my UX design journey. I love talking about **user research, collaborative design processes, and creating impactful user experiences**. What would you like to know about my work or background?"
+            // General positive responses
+            "fit": "I believe I'd be a great fit because I bring both the technical skills and collaborative mindset needed for successful design work. My Cognitive Science background helps me understand users deeply, my multilingual abilities help me design for diverse audiences, and my experience leading teams shows I can drive projects forward. Plus, my teaching background has made me excellent at communication and feedback.",
+            
+            "why": "What sets me apart is my combination of cognitive science knowledge, hands-on design experience, and genuine care for the end user. I don't just want to make things look good - I want to solve real problems. My experience leading the GoTogether team and conducting user research shows I can drive results while keeping users at the center of everything I do."
         };
 
-        const messagesContainer = document.getElementById('messages');
-        const userInput = document.getElementById('userInput');
-        const sendBtn = document.getElementById('sendBtn');
-        const typingIndicator = document.getElementById('typingIndicator');
-        const questionButtons = document.getElementById('questionButtons');
-
-        let conversationStarted = false;
-
-        function findBestResponse(question) {
-            const q = question.toLowerCase();
-            
-            // Greeting detection
-            if (q.match(/^(hi|hello|hey|greetings)/)) {
-                return responses.greeting;
-            }
-
-            // Role-related keywords
-            if (q.includes('role') || q.includes('position') || q.includes('job') || q.includes('looking for')) {
-                return responses.roles;
-            }
-            if (q.includes('target') && (q.includes('role') || q.includes('position'))) {
-                return responses["target roles"];
-            }
-
-            // Education keywords
-            if (q.includes('education') || q.includes('school') || q.includes('university') || q.includes('degree')) {
-                return responses.education;
-            }
-            if (q.includes('mcgill') || q.includes('cognitive science')) {
-                return responses.mcgill;
-            }
-            if (q.includes('waterloo') || q.includes('digital experience')) {
-                return responses.waterloo;
-            }
-            if (q.includes('background') && (q.includes('educational') || q.includes('academic'))) {
-                return responses.background;
-            }
-
-            // Language and tools
-            if (q.includes('language') && !q.includes('programming')) {
-                return responses.languages;
-            }
-            if (q.includes('tools') || q.includes('software') || q.includes('figma') || q.includes('adobe')) {
-                return responses.tools;
-            }
-
-            // Specific projects
-            if (q.includes('gaia')) {
-                return responses.gaia;
-            }
-            if (q.includes('changearts') || q.includes('change arts')) {
-                return responses.changearts;
-            }
-            if (q.includes('studyhall') || q.includes('study hall')) {
-                return responses.studyhall;
-            }
-            if (q.includes('mining') || q.includes('bba')) {
-                return responses.mining;
-            }
-
-            // Skills and experience
-            if (q.includes('skill') || q.includes('strength') || q.includes('good at')) {
-                return responses.skills;
-            }
-            if (q.includes('experience') || q.includes('background')) {
-                return responses.experience;
-            }
-            if (q.includes('research') || q.includes('user research')) {
-                return responses.research;
-            }
-
-            // Company fit
-            if (q.includes('adobe')) {
-                return responses["adobe fit"];
-            }
-            if (q.includes('shopify')) {
-                return responses["shopify fit"];
-            }
-            if (q.includes('cogeco')) {
-                return responses["cogeco fit"];
-            }
-            if (q.includes('product design') || q.includes('fit for product')) {
-                return responses["product design"];
-            }
-
-            // Philosophy and personal
-            if (q.includes('philosophy') || q.includes('approach') || q.includes('methodology')) {
-                return responses.philosophy;
-            }
-            if (q.includes('fun') || q.includes('interesting') || q.includes('personal') || q.includes('hobby')) {
-                return responses["fun facts"];
-            }
-            if (q.includes('personality') || q.includes('about you') || q.includes('outside work')) {
-                return responses.personality;
-            }
-
-            return responses.default;
-        }
+        const defaultResponse = "That's a great question! While I'd love to give you a comprehensive answer, I think the best way to learn more would be to connect directly with them. What I can tell you is that they're passionate about user-centered design, have strong research and design skills, and would bring genuine enthusiasm and fresh perspective to any team. Is there anything specific about their background or approach to design that you'd like to know more about?";
 
         function addMessage(content, isUser = false) {
-            if (!conversationStarted) {
-                messagesContainer.innerHTML = '';
-                conversationStarted = true;
-            }
-
+            const messagesDiv = document.getElementById('messages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
             
-            const avatar = document.createElement('div');
-            avatar.className = `avatar ${isUser ? 'user' : 'ai'}`;
-            avatar.textContent = isUser ? 'Y' : 'R';
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'bubble';
+            bubbleDiv.textContent = content;
             
-            const messageContent = document.createElement('div');
-            messageContent.className = 'message-content';
+            messageDiv.appendChild(bubbleDiv);
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function getResponse(question) {
+            const lowerQuestion = question.toLowerCase();
             
-            // Convert markdown-style bold text to HTML
-            const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            messageContent.innerHTML = formattedContent;
+            // Check for keyword matches
+            for (let key in responses) {
+                if (lowerQuestion.includes(key)) {
+                    return responses[key];
+                }
+            }
             
-            messageDiv.appendChild(avatar);
-            messageDiv.appendChild(messageContent);
+            // Check for specific patterns
+            if (lowerQuestion.includes('tell me about') || lowerQuestion.includes('who are') || lowerQuestion.includes('about you')) {
+                return responses.background;
+            }
             
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            if (lowerQuestion.includes('good fit') || lowerQuestion.includes('why hire') || lowerQuestion.includes('why should')) {
+                return responses.fit;
+            }
+            
+            return defaultResponse;
         }
 
         function showTypingIndicator() {
-            typingIndicator.style.display = 'flex';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            document.getElementById('typingIndicator').style.display = 'block';
         }
 
         function hideTypingIndicator() {
-            typingIndicator.style.display = 'none';
+            document.getElementById('typingIndicator').style.display = 'none';
         }
 
         function sendMessage() {
-            const message = userInput.value.trim();
-            if (!message) return;
-
-            addMessage(message, true);
-            userInput.value = '';
-            sendBtn.disabled = true;
-
+            const input = document.getElementById('chatInput');
+            const question = input.value.trim();
+            
+            if (!question) return;
+            
+            addMessage(question, true);
+            input.value = '';
+            
             showTypingIndicator();
-
+            
             setTimeout(() => {
                 hideTypingIndicator();
-                const response = findBestResponse(message);
-                addMessage(response);
-                sendBtn.disabled = false;
-                userInput.focus();
-            }, 1500 + Math.random() * 1000);
+                const response = getResponse(question);
+                addMessage(response, false);
+            }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
         }
 
-        // Event listeners
-        sendBtn.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+        function askQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
                 sendMessage();
             }
-        });
+        }
 
-        questionButtons.addEventListener('click', (e) => {
-            if (e.target.classList.contains('question-btn')) {
-                const question = e.target.dataset.question;
-                userInput.value = question;
-                sendMessage();
-            }
+        // Add welcome message when page loads
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                addMessage("Hello! I'm here to tell you about Rosalie, a talented Product Designer with a passion for user-centered design and research. She's currently pursuing her Masters in Digital Experience Innovation and has amazing experience leading design teams and building scalable design systems. Feel free to ask me anything about her background, projects, or why she'd be perfect for your team!", false);
+            }, 500);
         });
-
-        // Focus input on load
-        userInput.focus();
     </script>
 </body>
 </html>
